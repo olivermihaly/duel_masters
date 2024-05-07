@@ -1,7 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import spiralGateImage from "../assets/cards/spiral_gate.png";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-export default function Card() {
+type CardProps = {
+  startPosition: { x: number; y: number };
+  card: CardProperties;
+};
+
+export default function Card({ startPosition, card }: CardProps) {
   const [isDragging, setIsDragging] = useState(false);
   const cardRef = useRef<HTMLImageElement>(null);
   const lastMousePosition = useRef<{ x: number; y: number } | null>(null);
@@ -24,6 +28,7 @@ export default function Card() {
 
     const handleMouseUp = () => {
       setIsDragging(false);
+      cardRef.current!.style.zIndex = "0";
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -35,10 +40,16 @@ export default function Card() {
     };
   }, [isDragging]);
 
+  useEffect(() => {
+    cardRef.current!.style.top = `${startPosition.y}px`;
+    cardRef.current!.style.left = `${startPosition.x}px`;
+  }, []);
+
   const handleMouseDown: React.MouseEventHandler<HTMLImageElement> = (
     event
   ) => {
     setIsDragging(true);
+    cardRef.current!.style.zIndex = "1";
     lastMousePosition.current = { x: event.clientX, y: event.clientY };
   };
 
@@ -50,7 +61,7 @@ export default function Card() {
     <>
       <img
         className={`card ${isDragging ? "dragging" : ""}`}
-        src={spiralGateImage}
+        src={card.src}
         ref={cardRef}
         alt="Spiral Gate"
         onMouseDown={handleMouseDown}
