@@ -1,11 +1,10 @@
-import GameScreen from "./screens/GameScreen";
-
+import DeckBuilderScreen from "./screens/DeckBuilder/DeckBuilderScreen";
 import "./styles.scss";
 
 function App() {
   return (
     <div className="App">
-      <GameScreen />
+      <DeckBuilderScreen />
     </div>
   );
 }

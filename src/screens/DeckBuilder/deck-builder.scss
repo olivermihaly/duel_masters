@@ -1,0 +1,98 @@
+.deck-builder-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.card-list,
+.my-decks {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background-color: rgb(14, 0, 76);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-list {
+  flex: 3;
+}
+
+.my-decks {
+  flex: 1;
+}
+
+.panel-header {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: Perceval;
+  text-shadow: 2px 2px black;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-list-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  padding-top: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.list-card {
+  width: calc(13% - 0px);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  user-select: none;
+  &:hover {
+    transform: scale(1);
+  }
+}
+
+.deck-selector {
+  all: unset;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 118, 138, 0.536);
+  font-family: Armada;
+  color: white;
+  user-select: none;
+  margin-bottom: 10px;
+}
+
+.my-deck-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.my-deck-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.my-deck-button {
+  all: unset;
+  font-family: Armada;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgb(0, 79, 79);
+  cursor: pointer;
+  transition: all 200ms ease;
+  &:hover {
+    background-color: cyan;
+  }
+}
+
+.my-deck-card {
+  width: calc(20% - 10px);
+  margin: 5px;
+  cursor: pointer;
+}

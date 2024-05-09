@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Perceval;
+  src: url(./assets/fonts/Perceval-Bold.otf);
+}
+
+@font-face {
+  font-family: Armada;
+  src: url(./assets/fonts/Armada-Bold.otf);
+}
+
 #root {
   height: 100vh;
   width: 100vw;
@@ -12,7 +22,7 @@
 }
 .App {
   height: 100vmin;
-  background-color: rgb(14, 0, 76);
+  background-color: rgba(42, 0, 68, 0.476);
   aspect-ratio: 16/9;
 }
 
@@ -34,4 +44,21 @@
   position: absolute;
   user-select: none;
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a74be78;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
 }

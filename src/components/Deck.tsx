@@ -7,7 +7,7 @@ import Img5 from "../assets/cards/astrocomet_dragon.png";
 import Img6 from "../assets/cards/creeping_plague.png";
 import Img7 from "../assets/cards/wanderning_braineater.png";*/
 
-const DECK: CardProperties[] = [
+export const DECK: CardProperties[] = [
   {
     src: AquaHulcusImage,
     manaCost: 7,
