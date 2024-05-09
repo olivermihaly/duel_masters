@@ -1,0 +1,47 @@
+{
+  "dependencies": {
+    "@types/mjml": "^4.7.0",
+    "@types/node": "^20.11.22",
+    "async-mutex": "^0.3.2",
+    "axios": "^1.6.8",
+    "blurhash": "^2.0.5",
+    "busboy": "^1.6.0",
+    "connect-busboy": "^1.0.0",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.3",
+    "expo-server-sdk": "^3.9.0",
+    "express": "^4.18.1",
+    "form-data": "^4.0.0",
+    "fs-extra": "^10.1.0",
+    "googleapis": "^107.0.0",
+    "heic-convert": "^1.2.4",
+    "html-minifier": "^4.0.0",
+    "knex": "^3.1.0",
+    "mime-types": "^2.1.35",
+    "mjml": "^4.13.0",
+    "mv": "^2.1.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.4",
+    "node-fetch": "^3.2.10",
+    "nodemailer": "^6.7.8",
+    "sharp": "^0.33.3",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.12",
+    "typescript": "^5.3.3",
+    "uuid": "^8.3.2",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/heic-convert": "^1.2.0",
+    "@types/mime-types": "^2.1.1",
+    "@types/mv": "^2.1.2",
+    "@types/sharp": "^0.30.5",
+    "@types/uuid": "^8.3.4",
+    "@types/ws": "^8.5.10"
+  },
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "npx tsc"
+  }
+}
