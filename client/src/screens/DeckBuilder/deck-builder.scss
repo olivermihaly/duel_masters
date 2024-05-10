@@ -37,16 +37,15 @@
 }
 
 .card-list-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px;
   padding-top: 20px;
   overflow-y: auto;
   flex: 1;
+  align-items: flex-start;
 }
 
 .list-card {
   width: calc(13% - 0px);
+  margin: 7px;
   cursor: pointer;
   transition: transform 0.1s ease;
   user-select: none;
