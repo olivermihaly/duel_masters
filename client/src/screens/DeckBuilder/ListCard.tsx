@@ -1,14 +1,13 @@
-import image from "../../assets/cards/aqua_knight.png";
 import useMyDecksStore from "../../stores/useMyDeckStore";
 
-export default function ListCard() {
+export default function ListCard({src}:{src:string}) {
   const [addCardToDeck] = useMyDecksStore((state) => [state.addCardToDeck]);
 
   return (
     <img
       className="list-card"
-      src={image}
-      onClick={() => addCardToDeck({ src: image })}
+      src={src}
+      onClick={() => addCardToDeck({ src: src })}
     ></img>
   );
 }
