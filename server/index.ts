@@ -20,12 +20,14 @@ dataSource
     wss.on("connection", (ws: WebSocket) => {
       console.log("Client connected");
 
-      ws.on("message", async (message: string) => {
-        console.log(message);
+      ws.on("message", async (message: string | Buffer) => {
         try {
-          const { name, password } = JSON.parse(message);
+          const jsonString = message.toString();
+          const { name, password } = JSON.parse(jsonString);
           const userRepository = dataSource.getRepository(User);
           const user = await userRepository.findOneBy({ name });
+
+          console.log(name, password);
 
           if (user && user.password === password) {
             ws.send(
