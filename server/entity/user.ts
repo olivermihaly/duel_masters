@@ -11,4 +11,7 @@ export class User extends BaseEntity {
 
   @Column({ type: "varchar", length: 64 })
   password!: string;
+
+  @Column({ type: "int" })
+  coins!: number;
 }
