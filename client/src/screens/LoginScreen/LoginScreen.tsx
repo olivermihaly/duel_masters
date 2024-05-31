@@ -21,13 +21,13 @@ export default function LoginScreen() {
   };
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+    <div className="screen login-container">
+      <h1 className="header">Login</h1>
+      <form className="login-form" onSubmit={handleLogin}>
         <div className="input-group">
-          <label htmlFor="username">Username:</label>
           <input
             type="text"
+            className="login-input"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -35,8 +35,8 @@ export default function LoginScreen() {
           />
         </div>
         <div className="input-group">
-          <label htmlFor="password">Password:</label>
           <input
+            className="login-input"
             type="password"
             id="password"
             value={password}
@@ -44,7 +44,9 @@ export default function LoginScreen() {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className="login-button" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
