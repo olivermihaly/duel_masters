@@ -34,6 +34,7 @@
   text-shadow: 2px 2px black;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
 }
 
 .card-list-cards {
@@ -41,17 +42,30 @@
   overflow-y: auto;
   flex: 1;
   align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.list-card {
+.draggable-list-card-container {
   width: calc(13% - 0px);
   margin: 7px;
   cursor: pointer;
+  user-select: none;
+}
+
+.list-card {
+  width: 100%;
   transition: transform 0.1s ease;
   user-select: none;
   &:hover {
     transform: scale(1);
   }
+}
+
+.draggable-list-card {
+  width: calc(12% - 0px);
+  user-select: none;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .deck-selector {
