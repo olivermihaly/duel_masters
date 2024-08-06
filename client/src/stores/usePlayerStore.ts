@@ -12,16 +12,27 @@ export type Deck = {
 export type PlayerProps = {
   username: string;
   decks: Record<string, Deck>;
+  currentDeck: string;
   saveDeck: (name: string, deck: Deck) => void;
   addCardToDeck: (deckName: string, card: Card) => void;
   removeCardFromDeck: (deckName: string, index: number) => void;
   deleteDeck: (name: string) => void;
+  setCurrentDeck: (currentDeck: string) => void;
 };
+
 const usePlayerStore = create<PlayerProps>((set, get) => ({
-  decks: {},
+  decks: { DefaultDeck: { name: "DefaultDeck", cards: [] } },
   username: "",
+  currentDeck: "DefaultDeck",
+
+  setCurrentDeck: (currentDeck) => set({ currentDeck }),
+
   saveDeck: (name, deck) => {
     const { decks } = get();
+    if (decks[name]) {
+      console.error(`Deck with name "${name}" already exists.`);
+      return;
+    }
     set({
       decks: {
         ...decks,
@@ -32,14 +43,25 @@ const usePlayerStore = create<PlayerProps>((set, get) => ({
       },
     });
   },
+
   deleteDeck: (name) => {
-    const { decks } = get();
+    const { decks, currentDeck } = get();
+    if (name === "DefaultDeck") {
+      console.error(`Cannot delete the default deck.`);
+      return;
+    }
+
     const { [name]: _, ...rest } = decks;
-    set({ decks: rest });
+    set({
+      decks: rest,
+      currentDeck: currentDeck === name ? "DefaultDeck" : currentDeck,
+    });
   },
+
   addCardToDeck: (deckName, card) => {
     const { decks } = get();
     const deck = decks[deckName];
+
     if (deck) {
       const updatedDeck = {
         ...deck,
@@ -50,6 +72,7 @@ const usePlayerStore = create<PlayerProps>((set, get) => ({
       console.error(`Deck with name "${deckName}" does not exist.`);
     }
   },
+
   removeCardFromDeck: (deckName, index) => {
     const { decks } = get();
     const deck = decks[deckName];

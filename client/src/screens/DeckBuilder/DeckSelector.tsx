@@ -1,10 +1,24 @@
+import { ChangeEvent } from "react";
+import usePlayerStore from "../../stores/usePlayerStore";
+
 export default function DeckSelector() {
+  const { decks, setCurrentDeck } = usePlayerStore((state) => ({
+    decks: state.decks,
+    setCurrentDeck: state.setCurrentDeck,
+  }));
+
+  // Handle change in deck selection
+  const handleDeckChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCurrentDeck(event.target.value);
+  };
+
   return (
-    <select className="deck-selector" name="decks" id="decks">
-      <option value="volvo">Deck1</option>
-      <option value="saab">Deck2</option>
-      <option value="mercedes">Deck3</option>
-      <option value="audi">Deck4</option>
+    <select className="deck-selector" name="decks" id="decks" onChange={handleDeckChange}>
+      {Object.keys(decks).map((deckName) => (
+        <option key={deckName} value={deckName}>
+          {deckName}
+        </option>
+      ))}
     </select>
   );
 }
